@@ -1,0 +1,2601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS Painting — Santa Cruz County's Premier Painting Contractor · Commercial & Residential</title>
+    <meta name="description" content="Licensed painting contractor serving Santa Cruz, Scotts Valley, Aptos, Capitola & Rio Del Mar since 1990. Interior, exterior, residential & commercial. CA Lic. #1035426. EPA Certified. Free estimates: (831) 566-6807.">
+    <meta property="og:title" content="DS Painting — Santa Cruz County's Premier Painting Contractor">
+    <meta property="og:description" content="Licensed painting contractor serving the Central Coast since 1990. Interior, exterior, residential & commercial. Free estimates: (831) 566-6807.">
+    <meta property="og:image" content="house-victorian-modern.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preload" as="image" href="house-victorian-modern.png">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "DS Painting",
+        "description": "Santa Cruz County's Premier Painting Contractor — Commercial & Residential",
+        "telephone": "(831) 566-6807",
+        "url": "https://davesmithpainting.com",
+        "image": "house-victorian-modern.png",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Santa Cruz",
+            "addressRegion": "CA",
+            "addressCountry": "US"
+        },
+        "areaServed": ["Santa Cruz", "Scotts Valley", "Aptos", "Capitola", "Rio Del Mar", "Watsonville", "Soquel"],
+        "openingHours": "Mo-Fr 07:00-17:00",
+        "priceRange": "$$",
+        "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "license",
+            "recognizedBy": {"@type": "Organization", "name": "State of California"},
+            "identifier": "1035426"
+        },
+        "knowsAbout": ["Interior Painting", "Exterior Painting", "Residential Painting", "Commercial Painting", "EPA Certified Lead Paint Removal"],
+        "foundingDate": "1990",
+        "founder": {"@type": "Person", "name": "Dave Smith"}
+    }
+    </script>
+    <style>
+        :root {
+            --ink: #0a0a0a;
+            --ink-soft: #141414;
+            --ink-card: #1a1a1a;
+            --lime: #7FFF00;
+            --lime-bright: #9FFF33;
+            --lime-deep: #65CC00;
+            --paper: #fafaf7;
+            --gray-line: rgba(250, 250, 247, 0.08);
+            --gray-text: rgba(250, 250, 247, 0.6);
+            --gray-text-soft: rgba(250, 250, 247, 0.4);
+            --easing: cubic-bezier(0.22, 1, 0.36, 1);
+            --nav-height: 76px;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: auto;
+        }
+
+        body {
+            font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--ink);
+            color: var(--paper);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 16px;
+            background: var(--lime);
+            color: var(--ink);
+            padding: 12px 24px;
+            font-family: 'Geist', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 4px;
+            z-index: 10000;
+            transition: top 0.3s var(--easing);
+        }
+
+        .skip-link:focus {
+            top: 16px;
+        }
+
+        /* NAVIGATION */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-bottom: 1px solid var(--gray-line);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 56px;
+            transition: padding 0.4s var(--easing), background 0.4s var(--easing);
+            transform: translateY(-100%);
+        }
+
+        .nav.scrolled {
+            padding-top: 0;
+            padding-bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+        }
+
+        .nav__brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav__badge {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--ink);
+            border: 1.5px solid var(--lime);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Geist', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            color: var(--lime);
+            letter-spacing: -0.02em;
+        }
+
+        .nav__brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav__brand-name {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--paper);
+            letter-spacing: 0.02em;
+        }
+
+        .nav__brand-sub {
+            font-family: 'Geist Mono', monospace;
+            font-size: 9px;
+            color: var(--lime);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .nav__links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav__links a {
+            font-family: 'Geist Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray-text-soft);
+            transition: color 0.3s var(--easing);
+        }
+
+        .nav__links a:hover,
+        .nav__links a:focus-visible {
+            color: var(--paper);
+        }
+
+        .nav__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--lime);
+            color: var(--ink);
+            font-family: 'Geist', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 12px 24px;
+            border-radius: 100px;
+            transition: all 0.3s var(--easing);
+            white-space: nowrap;
+        }
+
+        .nav__cta:hover {
+            background: var(--lime-bright);
+            transform: scale(1.02);
+            box-shadow: 0 4px 20px rgba(127, 255, 0, 0.3);
+        }
+
+        .nav__hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            width: 28px;
+            padding: 4px 0;
+            cursor: pointer;
+        }
+
+        .nav__hamburger span {
+            display: block;
+            height: 2px;
+            background: var(--paper);
+            border-radius: 2px;
+            transition: all 0.3s var(--easing);
+        }
+
+        .nav__mobile-menu {
+            display: none;
+            position: fixed;
+            top: var(--nav-height);
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(24px);
+            padding: 40px 32px;
+            z-index: 999;
+        }
+
+        .nav__mobile-menu.active {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .nav__mobile-menu a {
+            font-family: 'Geist', sans-serif;
+            font-weight: 500;
+            font-size: 24px;
+            color: var(--paper);
+            display: block;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--gray-line);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            padding: 180px 56px 100px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero__bg {
+            position: absolute;
+            inset: 0;
+            background: url('house-victorian-modern.png') center/cover no-repeat;
+            transform: scale(1);
+            animation: heroZoom 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.04); }
+        }
+
+        .hero__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.7) 50%, rgba(10,10,10,0.95) 100%);
+        }
+
+        .hero__content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 80px;
+            align-items: end;
+        }
+
+        .hero__eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .hero__eyebrow-line {
+            width: 32px;
+            height: 1px;
+            background: var(--lime);
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+        .hero__eyebrow-text {
+            font-family: 'Geist Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--lime);
+        }
+
+        .hero__headline {
+            font-size: clamp(56px, 8vw, 140px);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+            color: var(--paper);
+            margin-bottom: 32px;
+        }
+
+        .hero__headline em {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--lime);
+        }
+
+        .hero__headline .big-lime {
+            color: var(--lime);
+        }
+
+        .hero__headline .word {
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: top;
+        }
+
+        .hero__headline .word-inner {
+            display: inline-block;
+            transform: translateY(100%);
+        }
+
+        .hero__subhead {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--gray-text);
+            max-width: 600px;
+            margin-bottom: 12px;
+        }
+
+        .hero__subhead-small {
+            font-size: 15px;
+            color: var(--gray-text-soft);
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .hero__ctas {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--lime);
+            color: var(--ink);
+            font-family: 'Geist', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 16px 32px;
+            border-radius: 100px;
+            letter-spacing: 0.02em;
+            transition: all 0.3s var(--easing);
+        }
+
+        .btn-primary:hover {
+            background: var(--lime-bright);
+            transform: scale(1.02);
+            box-shadow: 0 4px 24px rgba(127, 255, 0, 0.3);
+        }
+
+        .btn-primary:focus-visible {
+            outline: 2px solid var(--lime);
+            outline-offset: 3px;
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--paper);
+            font-family: 'Geist', sans-serif;
+            font-weight: 500;
+            font-size: 15px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-text-soft);
+            transition: all 0.3s var(--easing);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--lime);
+            color: var(--lime);
+        }
+
+        .btn-ghost:focus-visible {
+            outline: 2px solid var(--lime);
+            outline-offset: 3px;
+        }
+
+        /* Hero stat badges */
+        .hero__badges {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 60px auto 0;
+            width: 100%;
+        }
+
+        .hero__badge {
+            background: var(--ink-card);
+            border: 1px solid var(--gray-line);
+            border-radius: 8px;
+            padding: 20px 28px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.3s var(--easing);
+            opacity: 0;
+        }
+
+        .hero__badge:hover {
+            border-color: var(--lime);
+            transform: translateY(-2px);
+        }
+
+        .hero__badge-icon {
+            font-size: 22px;
+        }
+
+        .hero__badge-text {
+            font-family: 'Geist', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--paper);
+        }
+
+        /* Hero quote */
+        .hero__quote {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 48px auto 0;
+            width: 100%;
+            padding-left: 20px;
+            border-left: 2px solid var(--lime);
+            opacity: 0;
+        }
+
+        .hero__quote p {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 18px;
+            color: var(--gray-text);
+            line-height: 1.5;
+        }
+
+        .hero__quote cite {
+            display: block;
+            font-family: 'Geist Mono', monospace;
+            font-style: normal;
+            font-size: 11px;
+            color: var(--gray-text-soft);
+            margin-top: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* TRUST STRIP */
+        .trust-strip {
+            background: var(--lime);
+            padding: 22px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .trust-strip__track {
+            display: flex;
+            width: max-content;
+            animation: marquee 50s linear infinite;
+        }
+
+        .trust-strip:hover .trust-strip__track {
+            animation-play-state: paused;
+        }
+
+        .trust-strip__item {
+            font-family: 'Geist', sans-serif;
+            font-weight: 800;
+            font-size: 16px;
+            color: var(--ink);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
+            padding: 0 24px;
+        }
+
+        .trust-strip__item::after {
+            content: ' \2726';
+            margin-left: 24px;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* SECTION COMMON */
+        .section {
+            padding: 120px 56px;
+        }
+
+        .section--lg {
+            padding: 140px 56px;
+        }
+
+        .section--ink { background: var(--ink); }
+        .section--ink-soft { background: var(--ink-soft); }
+
+        .section__container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section__eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .section__eyebrow-line {
+            width: 32px;
+            height: 1px;
+            background: var(--lime);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s var(--easing);
+        }
+
+        .section__eyebrow.in-view .section__eyebrow-line {
+            transform: scaleX(1);
+        }
+
+        .section__eyebrow-text {
+            font-family: 'Geist Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray-text-soft);
+        }
+
+        .section__headline {
+            font-size: clamp(40px, 5vw, 72px);
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+            color: var(--paper);
+            margin-bottom: 24px;
+        }
+
+        .section__headline em {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--lime);
+        }
+
+        .section__subhead {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--gray-text);
+            max-width: 680px;
+            margin-bottom: 60px;
+        }
+
+        /* PROMISE CARDS */
+        .promises__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .promise-card {
+            background: var(--ink-card);
+            border: 1px solid var(--gray-line);
+            border-radius: 8px;
+            padding: 32px;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s var(--easing);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .promise-card:hover {
+            border-color: var(--lime);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(127, 255, 0, 0.08);
+        }
+
+        .promise-card__icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 24px;
+            color: var(--lime);
+        }
+
+        .promise-card__icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--lime);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .promise-card__title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--paper);
+            margin-bottom: 12px;
+        }
+
+        .promise-card__body {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--gray-text);
+        }
+
+        /* VIDEO SECTION */
+        .video-section {
+            padding: 120px 56px 60px;
+            text-align: center;
+        }
+
+        .video-section .section__headline,
+        .video-section .section__subhead {
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-section__label {
+            font-family: 'Geist Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--lime);
+            margin-bottom: 16px;
+        }
+
+        .video-section__player {
+            max-width: 1280px;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-section__player video {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .video-section__caption {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 16px;
+            color: var(--gray-text);
+            margin-top: 24px;
+        }
+
+        /* SERVICES */
+        .services__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--ink-card);
+            border: 1px solid var(--gray-line);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s var(--easing);
+        }
+
+        .service-card:hover {
+            border-color: var(--lime);
+            transform: translateY(-4px);
+        }
+
+        .service-card__image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            filter: contrast(1.05) saturate(1.05);
+        }
+
+        .service-card__content {
+            padding: 36px;
+        }
+
+        .service-card__header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .service-card__icon {
+            font-size: 24px;
+        }
+
+        .service-card__title {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--paper);
+            letter-spacing: -0.02em;
+        }
+
+        .service-card__body {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--gray-text);
+            margin-bottom: 24px;
+        }
+
+        .service-card__list {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+
+        .service-card__list li {
+            font-size: 15px;
+            color: var(--paper);
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .service-card__list li::before {
+            content: '';
+            width: 18px;
+            height: 18px;
+            background: var(--lime);
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230a0a0a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 10px;
+        }
+
+        .service-card__link {
+            font-family: 'Geist', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--lime);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s var(--easing);
+        }
+
+        .service-card__link:hover {
+            gap: 14px;
+        }
+
+        /* PROCESS TIMELINE */
+        .process__timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process__line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gray-line);
+            transform: translateX(-50%);
+        }
+
+        .process__line-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: var(--lime);
+            transition: height 0.1s linear;
+        }
+
+        .process__item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .process__item:nth-child(odd) {
+            flex-direction: row;
+            padding-right: calc(50% + 48px);
+            text-align: right;
+        }
+
+        .process__item:nth-child(even) {
+            flex-direction: row-reverse;
+            padding-left: calc(50% + 48px);
+            text-align: left;
+        }
+
+        .process__dot {
+            position: absolute;
+            left: 50%;
+            top: 12px;
+            width: 16px;
+            height: 16px;
+            background: var(--ink);
+            border: 2px solid var(--lime);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            transition: all 0.3s var(--easing);
+        }
+
+        .process__item.active .process__dot {
+            background: var(--lime);
+            box-shadow: 0 0 16px rgba(127, 255, 0, 0.5);
+        }
+
+        .process__card {
+            background: var(--ink-card);
+            border: 1px solid var(--gray-line);
+            border-radius: 8px;
+            padding: 32px;
+            max-width: 480px;
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.6s var(--easing);
+        }
+
+        .process__item:nth-child(even) .process__card {
+            transform: translateX(40px);
+        }
+
+        .process__card.in-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .process__number {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 64px;
+            color: var(--lime);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .process__title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--paper);
+            margin-bottom: 12px;
+        }
+
+        .process__body {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--gray-text);
+        }
+
+        /* PAINT THAT LASTS */
+        .promise-section__grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .promise-section__body p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--gray-text);
+            margin-bottom: 24px;
+        }
+
+        .promise-section__badges {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .promise-badge {
+            background: var(--ink-card);
+            border: 1px solid var(--gray-line);
+            border-radius: 8px;
+            padding: 24px;
+            transition: all 0.3s var(--easing);
+        }
+
+        .promise-badge:hover {
+            border-color: var(--lime);
+        }
+
+        .promise-badge__icon {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .promise-badge__title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--paper);
+            margin-bottom: 8px;
+        }
+
+        .promise-badge__body {
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--gray-text);
+        }
+
+        /* PORTFOLIO */
+        .portfolio__grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: 140px;
+            gap: 12px;
+        }
+
+        .portfolio__item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .portfolio__item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(1.05) saturate(1.05);
+            transition: transform 0.8s var(--easing);
+        }
+
+        .portfolio__item:hover img {
+            transform: scale(1.06);
+        }
+
+        .portfolio__item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.8) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.5s var(--easing);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+        }
+
+        .portfolio__item:hover .portfolio__item-overlay {
+            opacity: 1;
+        }
+
+        .portfolio__item-number {
+            font-family: 'Geist Mono', monospace;
+            font-size: 11px;
+            color: var(--lime);
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .portfolio__item-name {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 20px;
+            color: var(--paper);
+        }
+
+        .portfolio__item--1 { grid-column: 1 / 7; grid-row: 1 / 4; }
+        .portfolio__item--2 { grid-column: 7 / 13; grid-row: 1 / 3; }
+        .portfolio__item--3 { grid-column: 7 / 10; grid-row: 3 / 4; }
+        .portfolio__item--4 { grid-column: 10 / 13; grid-row: 3 / 4; }
+        .portfolio__item--5 { grid-column: 1 / 5; grid-row: 4 / 7; }
+        .portfolio__item--6 { grid-column: 5 / 9; grid-row: 4 / 6; }
+        .portfolio__item--7 { grid-column: 9 / 13; grid-row: 4 / 6; }
+        .portfolio__item--8 { grid-column: 5 / 9; grid-row: 6 / 7; }
+        .portfolio__item--9 { grid-column: 9 / 13; grid-row: 6 / 7; }
+        .portfolio__item--10 { grid-column: 1 / 7; grid-row: 7 / 9; }
+        .portfolio__item--11 { grid-column: 7 / 10; grid-row: 7 / 9; }
+        .portfolio__item--12 { grid-column: 10 / 13; grid-row: 7 / 9; }
+        .portfolio__item--13 { grid-column: 1 / 5; grid-row: 9 / 11; }
+        .portfolio__item--14 { grid-column: 5 / 9; grid-row: 9 / 11; }
+        .portfolio__item--15 { grid-column: 9 / 13; grid-row: 9 / 11; }
+        .portfolio__item--16 { grid-column: 1 / 13; grid-row: 11 / 13; }
+
+        .portfolio__header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 60px;
+        }
+
+        .portfolio__link {
+            font-family: 'Geist', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--lime);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s var(--easing);
+        }
+
+        .portfolio__link:hover { gap: 14px; }
+
+        /* TESTIMONIALS */
+        .testimonials__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .testimonial-card {
+            background: var(--ink-card);
+            border: 1px solid var(--gray-line);
+            border-radius: 8px;
+            padding: 32px;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .testimonial-card__stars {
+            color: var(--lime);
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card__quote {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 17px;
+            line-height: 1.5;
+            color: var(--paper);
+            flex: 1;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-card__divider {
+            height: 1px;
+            background: var(--gray-line);
+            margin-bottom: 16px;
+        }
+
+        .testimonial-card__author {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--paper);
+        }
+
+        .testimonial-card__meta {
+            font-family: 'Geist Mono', monospace;
+            font-size: 10px;
+            color: var(--lime);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .testimonial-card__date {
+            font-family: 'Geist Mono', monospace;
+            font-size: 10px;
+            color: var(--gray-text-soft);
+            margin-top: 4px;
+        }
+
+        .testimonials__featured {
+            max-width: 800px;
+            margin: 60px auto 0;
+            text-align: center;
+            padding: 48px;
+            border-top: 1px solid var(--gray-line);
+        }
+
+        .testimonials__featured-stars {
+            color: var(--lime);
+            font-size: 22px;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .testimonials__featured-quote {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 24px;
+            line-height: 1.5;
+            color: var(--paper);
+            margin-bottom: 20px;
+        }
+
+        .testimonials__featured-author {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--paper);
+        }
+
+        .testimonials__featured-meta {
+            font-family: 'Geist Mono', monospace;
+            font-size: 10px;
+            color: var(--lime);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .testimonials__cta {
+            text-align: center;
+        }
+
+        /* FAQ */
+        .faq__list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--ink-card);
+            border: 1px solid var(--gray-line);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-item__question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 32px;
+            font-family: 'Geist', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--paper);
+            text-align: left;
+            cursor: pointer;
+            transition: color 0.3s var(--easing);
+        }
+
+        .faq-item__question:hover {
+            color: var(--lime);
+        }
+
+        .faq-item__question:focus-visible {
+            outline: 2px solid var(--lime);
+            outline-offset: -2px;
+        }
+
+        .faq-item__chevron {
+            width: 24px;
+            height: 24px;
+            color: var(--lime);
+            transition: transform 0.3s var(--easing);
+            flex-shrink: 0;
+        }
+
+        .faq-item.open .faq-item__chevron {
+            transform: rotate(180deg);
+        }
+
+        .faq-item__answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s var(--easing);
+        }
+
+        .faq-item__answer-inner {
+            padding: 0 32px 24px;
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--gray-text);
+        }
+
+        /* REFERRAL */
+        .referral__grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .referral__icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .referral__label {
+            font-family: 'Geist Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--lime);
+            margin-bottom: 24px;
+        }
+
+        .referral__headline {
+            font-size: clamp(36px, 4vw, 64px);
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+            color: var(--paper);
+            margin-bottom: 28px;
+        }
+
+        .referral__headline .lime { color: var(--lime); }
+
+        .referral__body {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--gray-text);
+            margin-bottom: 16px;
+        }
+
+        .referral__steps {
+            list-style: none;
+        }
+
+        .referral__step {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            margin-bottom: 36px;
+        }
+
+        .referral__step-number {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 56px;
+            color: var(--lime);
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .referral__step-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--paper);
+            padding-top: 16px;
+        }
+
+        /* FINAL CTA */
+        .final-cta {
+            padding: 160px 56px;
+            background: linear-gradient(135deg, #7FFF00 0%, #65CC00 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .final-cta__noise {
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        .final-cta__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-cta__eyebrow {
+            font-family: 'Geist Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--ink);
+            opacity: 0.7;
+            margin-bottom: 32px;
+        }
+
+        .final-cta__headline {
+            font-size: clamp(56px, 8vw, 120px);
+            font-weight: 900;
+            line-height: 0.92;
+            letter-spacing: -0.04em;
+            color: var(--ink);
+            margin-bottom: 24px;
+        }
+
+        .final-cta__subhead {
+            font-size: 18px;
+            font-weight: 400;
+            color: rgba(10, 10, 10, 0.7);
+            margin-bottom: 48px;
+        }
+
+        .final-cta__buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-ink {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--ink);
+            color: var(--lime);
+            font-family: 'Geist', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 18px 36px;
+            border-radius: 100px;
+            letter-spacing: 0.02em;
+            transition: all 0.3s var(--easing);
+        }
+
+        .btn-ink:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 32px rgba(10, 10, 10, 0.3);
+        }
+
+        .btn-ink:focus-visible {
+            outline: 2px solid var(--ink);
+            outline-offset: 3px;
+        }
+
+        .btn-ink-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--ink);
+            border: 2px solid var(--ink);
+            font-family: 'Geist', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 16px 32px;
+            border-radius: 100px;
+            letter-spacing: 0.02em;
+            transition: all 0.3s var(--easing);
+        }
+
+        .btn-ink-outline:hover {
+            background: var(--ink);
+            color: var(--lime);
+        }
+
+        .btn-ink-outline:focus-visible {
+            outline: 2px solid var(--ink);
+            outline-offset: 3px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--ink);
+            padding: 100px 56px 40px;
+        }
+
+        .footer__container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer__grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer__brand-logo {
+            height: 80px;
+            margin-bottom: 16px;
+        }
+
+        .footer__brand-name {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--paper);
+            margin-bottom: 8px;
+        }
+
+        .footer__brand-tagline {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 16px;
+            color: var(--gray-text);
+            line-height: 1.5;
+        }
+
+        .footer__col-title {
+            font-family: 'Geist Mono', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--lime);
+            margin-bottom: 20px;
+        }
+
+        .footer__links {
+            list-style: none;
+        }
+
+        .footer__links li {
+            margin-bottom: 10px;
+        }
+
+        .footer__links a {
+            font-size: 14px;
+            color: var(--gray-text);
+            transition: color 0.3s var(--easing);
+        }
+
+        .footer__links a:hover {
+            color: var(--paper);
+        }
+
+        .footer__divider {
+            height: 1px;
+            background: var(--gray-line);
+            margin-bottom: 24px;
+        }
+
+        .footer__bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer__copyright {
+            font-family: 'Geist Mono', monospace;
+            font-size: 10px;
+            color: var(--gray-text-soft);
+            letter-spacing: 1px;
+        }
+
+        .footer__legal {
+            font-family: 'Geist Mono', monospace;
+            font-size: 10px;
+            color: var(--gray-text-soft);
+            letter-spacing: 1px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1200px) {
+            .hero__content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .services__grid {
+                grid-template-columns: 1fr;
+            }
+            .portfolio__grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 200px;
+            }
+            .portfolio__item--1,
+            .portfolio__item--2,
+            .portfolio__item--3,
+            .portfolio__item--4,
+            .portfolio__item--5,
+            .portfolio__item--6,
+            .portfolio__item--7,
+            .portfolio__item--8,
+            .portfolio__item--9,
+            .portfolio__item--10,
+            .portfolio__item--11,
+            .portfolio__item--12,
+            .portfolio__item--13,
+            .portfolio__item--14,
+            .portfolio__item--15,
+            .portfolio__item--16 {
+                grid-column: auto;
+                grid-row: auto;
+            }
+            .portfolio__item--16 {
+                grid-column: 1 / -1;
+            }
+            .testimonials__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .promises__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .promise-section__grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            .referral__grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            .footer__grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .section, .section--lg {
+                padding: 80px 24px;
+            }
+            .hero {
+                padding: 140px 24px 60px;
+            }
+            .nav {
+                padding: 0 24px;
+            }
+            .nav__links {
+                display: none;
+            }
+            .nav__hamburger {
+                display: flex;
+            }
+            .portfolio__grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 240px;
+            }
+            .portfolio__item--16 {
+                grid-column: auto;
+            }
+            .process__line {
+                left: 20px;
+            }
+            .process__item,
+            .process__item:nth-child(odd),
+            .process__item:nth-child(even) {
+                flex-direction: row;
+                padding-left: 60px;
+                padding-right: 0;
+                text-align: left;
+            }
+            .process__dot {
+                left: 20px;
+            }
+            .process__card,
+            .process__item:nth-child(even) .process__card {
+                transform: translateX(20px);
+            }
+            .process__card.in-view {
+                transform: translateX(0);
+            }
+            .testimonials__grid {
+                grid-template-columns: 1fr;
+            }
+            .hero__badges {
+                flex-direction: column;
+            }
+            .footer__grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .footer__bottom {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+            .final-cta {
+                padding: 100px 24px;
+            }
+            .video-section {
+                padding: 80px 24px 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero__headline {
+                font-size: clamp(36px, 10vw, 56px);
+            }
+            .promises__grid {
+                grid-template-columns: 1fr;
+            }
+            .hero__ctas {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .final-cta__headline {
+                font-size: clamp(36px, 10vw, 56px);
+            }
+            .final-cta__buttons {
+                flex-direction: column;
+            }
+            .trust-strip__item {
+                font-size: 13px;
+            }
+            .promise-section__badges {
+                grid-template-columns: 1fr;
+            }
+            .section__headline {
+                font-size: clamp(32px, 8vw, 48px);
+            }
+        }
+
+        /* REDUCED MOTION */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .hero__bg {
+                animation: none;
+            }
+            .trust-strip__track {
+                animation: none;
+            }
+            .hero__headline .word-inner,
+            .promise-card,
+            .testimonial-card,
+            .process__card,
+            .hero__badge,
+            .hero__quote {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- NAVIGATION -->
+    <header class="nav" id="nav" role="banner">
+        <a href="#hero" class="nav__brand" aria-label="DS Painting home">
+            <img src="logo.png" alt="DS Painting" style="height: 56px; width: auto; display: block;">
+        </a>
+        <nav aria-label="Main navigation">
+            <ul class="nav__links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Residential</a></li>
+                <li><a href="#services">Commercial</a></li>
+                <li><a href="#process">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#final-cta">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="tel:8315666807" class="nav__cta" aria-label="Call DS Painting">
+            <span aria-hidden="true">📞</span> (831) 566-6807
+        </a>
+        <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false" id="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Mobile menu -->
+    <div class="nav__mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+        <a href="#hero">Home</a>
+        <a href="#services">Residential</a>
+        <a href="#services">Commercial</a>
+        <a href="#process">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#faq">FAQ</a>
+        <a href="#final-cta">Contact</a>
+        <a href="tel:8315666807" style="color: var(--lime);">📞 (831) 566-6807</a>
+    </div>
+
+    <main id="main-content">
+        <!-- HERO -->
+        <section class="hero" id="hero" aria-label="Hero">
+            <div class="hero__bg" aria-hidden="true"></div>
+            <div class="hero__overlay" aria-hidden="true"></div>
+            <div class="hero__content">
+                <div class="hero__copy">
+                    <div class="hero__eyebrow">
+                        <div class="hero__eyebrow-line" aria-hidden="true"></div>
+                        <span class="hero__eyebrow-text">Santa Cruz County's Premier Painting Contractor</span>
+                    </div>
+                    <h1 class="hero__headline">
+                        PROTECT YOUR <em>HOME</em> WITH PAINT THAT LASTS <span class="big-lime">10+ YEARS</span>.
+                    </h1>
+                    <p class="hero__subhead">Flawless prep. Premium coatings. Guaranteed results. Serving the Central Coast for 35+ years.</p>
+                    <p class="hero__subhead-small">Trusted by homeowners, property managers, and commercial clients from Santa Cruz to Capitola.</p>
+                    <div class="hero__ctas">
+                        <a href="#final-cta" class="btn-primary magnetic-btn">Get a Free Estimate →</a>
+                        <a href="tel:8315666807" class="btn-ghost">📞 (831) 566-6807</a>
+                    </div>
+                </div>
+                <div class="hero__spacer" aria-hidden="true"></div>
+            </div>
+            <div class="hero__badges">
+                <div class="hero__badge">
+                    <span class="hero__badge-icon" aria-hidden="true">🛡️</span>
+                    <span class="hero__badge-text">CA License #1035426</span>
+                </div>
+                <div class="hero__badge">
+                    <span class="hero__badge-icon" aria-hidden="true">🏆</span>
+                    <span class="hero__badge-text">35+ Years in Business</span>
+                </div>
+                <div class="hero__badge">
+                    <span class="hero__badge-icon" aria-hidden="true">✅</span>
+                    <span class="hero__badge-text">Locally Owned & Operated</span>
+                </div>
+            </div>
+            <blockquote class="hero__quote">
+                <p>"Reliable, professional, and delivers exactly what's promised."</p>
+                <cite>— Verified Customer</cite>
+            </blockquote>
+        </section>
+
+        <!-- TRUST STRIP -->
+        <div class="trust-strip" aria-label="Trust indicators">
+            <div class="trust-strip__track" aria-hidden="true">
+                <span class="trust-strip__item">On-Time Completion Promise</span>
+                <span class="trust-strip__item">No-Mess Jobsite Guarantee</span>
+                <span class="trust-strip__item">Commercial & Residential</span>
+                <span class="trust-strip__item">35+ Years Experience</span>
+                <span class="trust-strip__item">Licensed & Insured</span>
+                <span class="trust-strip__item">#1035426</span>
+                <span class="trust-strip__item">Sherwin-Williams Premium</span>
+                <span class="trust-strip__item">EPA Certified</span>
+                <span class="trust-strip__item">On-Time Completion Promise</span>
+                <span class="trust-strip__item">No-Mess Jobsite Guarantee</span>
+                <span class="trust-strip__item">Commercial & Residential</span>
+                <span class="trust-strip__item">35+ Years Experience</span>
+                <span class="trust-strip__item">Licensed & Insured</span>
+                <span class="trust-strip__item">#1035426</span>
+                <span class="trust-strip__item">Sherwin-Williams Premium</span>
+                <span class="trust-strip__item">EPA Certified</span>
+            </div>
+        </div>
+
+        <!-- PROMISE CARDS -->
+        <section class="section section--ink" id="promises" aria-labelledby="promises-heading">
+            <div class="section__container">
+                <div class="section__eyebrow">
+                    <div class="section__eyebrow-line" aria-hidden="true"></div>
+                    <span class="section__eyebrow-text">Our Commitment — 04</span>
+                </div>
+                <h2 class="section__headline" id="promises-heading">What you can <em>count on.</em></h2>
+                <div class="promises__grid">
+                    <article class="promise-card">
+                        <div class="promise-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3 class="promise-card__title">On-Time Completion Promise</h3>
+                        <p class="promise-card__body">We commit to a schedule and we keep it. Your time matters.</p>
+                    </article>
+                    <article class="promise-card">
+                        <div class="promise-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                        <h3 class="promise-card__title">No-Mess Jobsite Guarantee</h3>
+                        <p class="promise-card__body">We protect everything before touching a brush. Zero collateral damage.</p>
+                    </article>
+                    <article class="promise-card">
+                        <div class="promise-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        </div>
+                        <h3 class="promise-card__title">Clear Communication</h3>
+                        <p class="promise-card__body">Dave is reachable. You'll always know exactly where we are in your project.</p>
+                    </article>
+                    <article class="promise-card">
+                        <div class="promise-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <h3 class="promise-card__title">Satisfaction or We Return</h3>
+                        <p class="promise-card__body">If something isn't right, we come back and make it right. No arguments.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIDEO SECTION -->
+        <section class="video-section section--ink" id="video" aria-labelledby="video-heading">
+            <div class="section__container">
+                <div class="section__eyebrow" style="justify-content: center;">
+                    <div class="section__eyebrow-line" aria-hidden="true"></div>
+                    <span class="section__eyebrow-text">See It In Action — 05</span>
+                </div>
+                <h2 class="section__headline" id="video-heading" style="text-align:center;">Real Work. <em>Real Crew.</em></h2>
+                <p class="section__subhead" style="text-align:center; margin-left:auto; margin-right:auto;">We don't just show finished photos. This is what the work actually looks like — proper prep, full protection, professional execution.</p>
+                <p class="video-section__label">▶ Hear It Directly — From a Real Client</p>
+                <div class="video-section__player">
+                    <video controls poster="painter-ceiling.png" preload="metadata" aria-label="Customer testimonial video">
+                        <source src="testimonial-video.mp4" type="video/mp4">
+                        Your browser does not support the video element.
+                    </video>
+                </div>
+                <p class="video-section__caption">Real homeowners. Real projects. Real results.</p>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="section section--lg section--ink-soft" id="services" aria-labelledby="services-heading">
+            <div class="section__container">
+                <div class="section__eyebrow">
+                    <div class="section__eyebrow-line" aria-hidden="true"></div>
+                    <span class="section__eyebrow-text">What We Do — 06</span>
+                </div>
+                <h2 class="section__headline" id="services-heading">Our <em>services.</em></h2>
+                <div class="services__grid">
+                    <article class="service-card">
+                        <img src="house-green-classic.png" alt="Beautiful green Victorian home freshly painted by DS Painting" class="service-card__image" loading="lazy">
+                        <div class="service-card__content">
+                            <div class="service-card__header">
+                                <span class="service-card__icon" aria-hidden="true">🏠</span>
+                                <h3 class="service-card__title">Residential Painting</h3>
+                            </div>
+                            <p class="service-card__body">Detail-focused prep, color consultation, and luxury-level finishes for high-end homeowners who won't settle for less.</p>
+                            <ul class="service-card__list">
+                                <li>Interior & Exterior</li>
+                                <li>Color Consultation</li>
+                                <li>Premium Sherwin-Williams Coatings</li>
+                                <li>Clean Job Sites — Always</li>
+                            </ul>
+                            <a href="#final-cta" class="service-card__link">Get a Free Quote →</a>
+                        </div>
+                    </article>
+                    <article class="service-card">
+                        <img src="commercial-white.png" alt="Modern white commercial building painted by DS Painting" class="service-card__image" loading="lazy">
+                        <div class="service-card__content">
+                            <div class="service-card__header">
+                                <span class="service-card__icon" aria-hidden="true">🏢</span>
+                                <h3 class="service-card__title">Commercial Painting</h3>
+                            </div>
+                            <p class="service-card__body">Large-scale commercial projects delivered on time and on budget. Trusted by property managers and HOAs across the Central Coast.</p>
+                            <ul class="service-card__list">
+                                <li>Large-Scale Buildings</li>
+                                <li>HOA & Property Management</li>
+                                <li>Multi-Phase Scheduling</li>
+                                <li>Zero Disruption Execution</li>
+                            </ul>
+                            <a href="#final-cta" class="service-card__link">Request a Proposal →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS TIMELINE -->
+        <section class="section section--lg section--ink" id="process" aria-labelledby="process-heading">
+            <div class="section__container">
+                <div class="section__eyebrow">
+                    <div class="section__eyebrow-line" aria-hidden="true"></div>
+                    <span class="section__eyebrow-text">How We Work — 07</span>
+                </div>
+                <h2 class="section__headline" id="process-heading">Our proven <em>6-phase</em> painting process.</h2>
+                <p class="section__subhead">This is why our paint lasts 10+ years. Every phase matters. Nothing is ever skipped.</p>
+                <div class="process__timeline">
+                    <div class="process__line" aria-hidden="true"><div class="process__line-fill"></div></div>
+                    <div class="process__item">
+                        <div class="process__dot" aria-hidden="true"></div>
+                        <div class="process__card">
+                            <div class="process__number" aria-hidden="true">01</div>
+                            <h3 class="process__title">Power Washing & Surface Cleaning</h3>
+                            <p class="process__body">Every job starts with a thorough pressure wash to remove dirt, mold, and loose paint — creating a clean, bondable surface.</p>
+                        </div>
+                    </div>
+                    <div class="process__item">
+                        <div class="process__dot" aria-hidden="true"></div>
+                        <div class="process__card">
+                            <div class="process__number" aria-hidden="true">02</div>
+                            <h3 class="process__title">Detailed Preparation</h3>
+                            <p class="process__body">Caulking, sanding, and priming every surface. This is where most contractors cut corners. We never do.</p>
+                        </div>
+                    </div>
+                    <div class="process__item">
+                        <div class="process__dot" aria-hidden="true"></div>
+                        <div class="process__card">
+                            <div class="process__number" aria-hidden="true">03</div>
+                            <h3 class="process__title">Full Protection & Masking</h3>
+                            <p class="process__body">Complete protection of your property — windows, trim, plants, and walkways — before a single drop of paint is applied.</p>
+                        </div>
+                    </div>
+                    <div class="process__item">
+                        <div class="process__dot" aria-hidden="true"></div>
+                        <div class="process__card">
+                            <div class="process__number" aria-hidden="true">04</div>
+                            <h3 class="process__title">Professional Application</h3>
+                            <p class="process__body">Spray, back-roll, and brush techniques applied at the correct mil thickness for maximum adhesion and longevity.</p>
+                        </div>
+                    </div>
+                    <div class="process__item">
+                        <div class="process__dot" aria-hidden="true"></div>
+                        <div class="process__card">
+                            <div class="process__number" aria-hidden="true">05</div>
+                            <h3 class="process__title">Final Touch-Ups & Quality Control</h3>
+                            <p class="process__body">A thorough inspection and final touch-ups before we consider the job complete.</p>
+                        </div>
+                    </div>
+                    <div class="process__item">
+                        <div class="process__dot" aria-hidden="true"></div>
+                        <div class="process__card">
+                            <div class="process__number" aria-hidden="true">06</div>
+                            <h3 class="process__title">Client Walkthrough & Approval</h3>
+                            <p class="process__body">You walk the job with us. We don't leave until you're 100% satisfied. No exceptions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAINT THAT LASTS -->
+        <section class="section section--lg section--ink-soft" id="paint-lasts" aria-labelledby="paint-lasts-heading">
+            <div class="section__container">
+                <div class="section__eyebrow">
+                    <div class="section__eyebrow-line" aria-hidden="true"></div>
+                    <span class="section__eyebrow-text">Our Promise — 08</span>
+                </div>
+                <h2 class="section__headline" id="paint-lasts-heading" style="margin-bottom: 48px;">PAINT THAT LASTS.<br>WORK THAT'S <em>GUARANTEED.</em></h2>
+                <div class="promise-section__grid">
+                    <div class="promise-section__body">
+                        <p>We don't just apply paint — we apply coatings. Our process is spec-driven, meaning every surface receives the correct primer, at the correct mil thickness, with the correct finish coat. The result is a paint job that lasts, not one that peels in two years.</p>
+                        <p>If you experience any peeling or failure due to application, we return and make it right. No arguments. No excuses.</p>
+                        <a href="#final-cta" class="btn-primary magnetic-btn" style="margin-top: 24px;">Get Your Free Estimate →</a>
+                    </div>
+                    <div class="promise-section__badges">
+                        <div class="promise-badge">
+                            <div class="promise-badge__icon" aria-hidden="true">🛡️</div>
+                            <h3 class="promise-badge__title">Spec-Driven Application</h3>
+                            <p class="promise-badge__body">Every coat applied to manufacturer specs.</p>
+                        </div>
+                        <div class="promise-badge">
+                            <div class="promise-badge__icon" aria-hidden="true">📏</div>
+                            <h3 class="promise-badge__title">Correct Mil Thickness</h3>
+                            <p class="promise-badge__body">Measured and verified — not eyeballed.</p>
+                        </div>
+                        <div class="promise-badge">
+                            <div class="promise-badge__icon" aria-hidden="true">✨</div>
+                            <h3 class="promise-badge__title">Proper Prep Always</h3>
+                            <p class="promise-badge__body">The surface determines the longevity.</p>
+                        </div>
+                        <div class="promise-badge">
+                            <div class="promise-badge__icon" aria-hidden="true">🏆</div>
+                            <h3 class="promise-badge__title">Longevity Guaranteed</h3>
+                            <p class="promise-badge__body">We stand behind every brushstroke.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO -->
+        <section class="section section--lg section--ink" id="portfolio" aria-labelledby="portfolio-heading">
+            <div class="section__container">
+                <div class="section__eyebrow">
+                    <div class="section__eyebrow-line" aria-hidden="true"></div>
+                    <span class="section__eyebrow-text">Our Work — 09</span>
+                </div>
+                <div class="portfolio__header">
+                    <div>
+                        <h2 class="section__headline" id="portfolio-heading" style="margin-bottom:12px;">Portfolio.</h2>
+                        <p class="section__subhead" style="margin-bottom:0;">Commercial buildings. Victorian homes. Luxury interiors. See the difference prep makes.</p>
+                    </div>
+                    <a href="#final-cta" class="portfolio__link">Start Your Project →</a>
+                </div>
+                <div class="portfolio__grid">
+                    <div class="portfolio__item portfolio__item--1">
+                        <img src="house-green-classic.png" alt="Classic green Victorian home exterior painting" loading="lazy">
+                        <div class="portfolio__item-overlay"><span class="portfolio__item-number">01 / 16</span><span class="portfolio__item-name">Green Victorian</span></div>
+                    </div>
+                    <div class="portfolio__item portfolio__item--2">
+                        <img src="commercial-quaker.png" alt="Commercial Quaker building painting project" loading="lazy">
+                        <div class="portfolio__item-overlay"><span class="portfolio__item-number">02 / 16</span><span class="portfolio__item-name">Commercial Quaker</span></div>
+                    </div>
+                    <div class="portfolio__item portfolio__item--3">
+                        <img src="house-victorian-pink.png" alt="Pink Victorian home exterior" loading="lazy">
+                        <div class="portfolio__item-overlay"><span class="portfolio__item-number">03 / 16</span><span class="portfolio__item-name">Pink Victorian</span></div>
+                    </div>
+                    <div class="portfolio__item portfolio__item--4">
+                        <img src="house-blue-balcony.png" alt="Blue home with balcony" loading="lazy">
+                        <div class="portfolio__item-overlay"><span class="portfolio__item-number">04 / 16</span><span class="portfolio__item-name">Blue Balcony Home</span></div>
+                    </div>
+                    <div class="portfolio__item portfolio__item--5">
+                        <img src="house-victorian-modern.png" alt="Modern Victorian home painting" loading="lazy">
+                        <div class="portfolio__item-overlay"><span class="portfolio__item-number">05 / 16</span><span class="portfolio__item-name">Modern Victorian</span></div>
+                    </div>
+                    <div class="portfolio__item portfolio__item--6">
+                        <img src="kitchen-1.png" alt="Interior kitchen painting project" loading="lazy">
+                        <div class="portfolio__item-overlay"><span class="portfolio__item-number">06 / 16</span><span class="portfolio__item-name">Kitchen Interior</span></div>
+                    </div>
+                    <div class="portfolio__item portfolio__item--7">
+                        <img src="kitchen-2.png" alt="Kitchen cabinet painting" loading="lazy">
+                        <div class="portfolio__item-overlay"><span class="portfolio__item-number">07 / 16</span><span class="portfolio__item-name">Kitchen Cabinets</span></div>
+                    </div>
+                    <div class="portfolio__item portfolio__item--8">
+                        <img src="house-spanish-style.png" alt="Spanish style home exterior" loading="lazy">
+                        <div class="portfolio__item-overlay"><span class="portfolio__item-number">08 / 16</span><span class="portfolio__item-name">Spanish Style</span></div>
+                    </div>
+                    <div class="portfolio__item portfolio__item--9">
+                        <img src="house-beige-garage.png" alt="Beige home with garage" loading="lazy">
+                        <div class="portfolio__item-overlay"><span class="portfolio__item-number">09 / 16</span><span class="portfolio__item-name">Beige Garage Home</span></div>
+                    </div>
+                    <div class="portfolio__item portfolio__item--10">
+                        <img src="commercial-green-building.png" alt="Large green commercial building" loading="lazy">
+                        <div class="portfolio__item-overlay"><span class="portfolio__item-number">10 / 16</span><span class="portfolio__item-name">Commercial Green</span></div>
+                    </div>
+                    <div class="portfolio__item portfolio__item--11">
+                        <img src="house-blue-street.png" alt="Blue home street view" loading="lazy">
+                        <div class="portfolio__item-overlay"><span class="portfolio__item-number">11 / 16</span><span class="portfolio__item-name">Blue Street View</span></div>
+                    </div>
+                    <div class="portfolio__item portfolio__item--12">
+                        <img src="house-modern-wood.png" alt="Modern wood exterior home" loading="lazy">
+                        <div class="portfolio__item-overlay"><span class="portfolio__item-number">12 / 16</span><span class="portfolio__item-name">Modern Wood</span></div>
+                    </div>
+                    <div class="portfolio__item portfolio__item--13">
+                        <img src="house-gray-palms.png" alt="Gray home with palm trees" loading="lazy">
+                        <div class="portfolio__item-overlay"><span class="portfolio__item-number">13 / 16</span><span class="portfolio__item-name">Gray Palms</span></div>
+                    </div>
+                    <div class="portfolio__item portfolio__item--14">
+                        <img src="house-solar.png" alt="Home with solar panels" loading="lazy">
+                        <div class="portfolio__item-overlay"><span class="portfolio__item-number">14 / 16</span><span class="portfolio__item-name">Solar Home</span></div>
+                    </div>
+                    <div class="portfolio__item portfolio__item--15">
+                        <img src="house-victorian-blue.png" alt="Blue Victorian home" loading="lazy">
+                        <div class="portfolio__item-overlay"><span class="portfolio__item-number">15 / 16</span><span class="portfolio__item-name">Victorian Blue</span></div>
+                    </div>
+                    <div class="portfolio__item portfolio__item--16">
+                        <img src="house-wood-cabin.png" alt="Wood cabin exterior painting" loading="lazy">
+                        <div class="portfolio__item-overlay"><span class="portfolio__item-number">16 / 16</span><span class="portfolio__item-name">Wood Cabin</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="section section--lg section--ink-soft" id="testimonials" aria-labelledby="testimonials-heading">
+            <div class="section__container">
+                <div class="section__eyebrow">
+                    <div class="section__eyebrow-line" aria-hidden="true"></div>
+                    <span class="section__eyebrow-text">What Clients Say — 10</span>
+                </div>
+                <h2 class="section__headline" id="testimonials-heading"><em>Testimonials.</em></h2>
+                <p class="section__subhead">Real homeowners. Real projects. Real results.</p>
+                <div class="testimonials__grid">
+                    <article class="testimonial-card">
+                        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <p class="testimonial-card__quote">"Dave's crew transformed our Victorian home. The prep work was meticulous — no shortcuts, no mess. The attention to detail was unlike anything I'd seen, and the paint still looks brand new years later."</p>
+                        <div class="testimonial-card__divider"></div>
+                        <span class="testimonial-card__author">Michael T.</span>
+                        <span class="testimonial-card__meta">Homeowner · Santa Cruz</span>
+                        <span class="testimonial-card__date">October 2023</span>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <p class="testimonial-card__quote">"Dave and his team took incredible care painting our older home from the 1950s. They addressed every issue, made thoughtful recommendations, and the final result was spectacular."</p>
+                        <div class="testimonial-card__divider"></div>
+                        <span class="testimonial-card__author">Lillianne D.</span>
+                        <span class="testimonial-card__meta">Homeowner · Santa Cruz</span>
+                        <span class="testimonial-card__date">July 2019</span>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <p class="testimonial-card__quote">"We manage multiple properties and DS Painting is our go-to contractor. Always on time, professional, and the quality is unmatched."</p>
+                        <div class="testimonial-card__divider"></div>
+                        <span class="testimonial-card__author">Sarah K.</span>
+                        <span class="testimonial-card__meta">Property Manager · Aptos</span>
+                        <span class="testimonial-card__date">September 2023</span>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <p class="testimonial-card__quote">"Dave is very impressive. His crew works extremely well together and their attention to detail really stood out."</p>
+                        <div class="testimonial-card__divider"></div>
+                        <span class="testimonial-card__author">Scott F.</span>
+                        <span class="testimonial-card__meta">Homeowner · La Selva Beach</span>
+                        <span class="testimonial-card__date">April 2020</span>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <p class="testimonial-card__quote">"Great price, high integrity, and high-quality work."</p>
+                        <div class="testimonial-card__divider"></div>
+                        <span class="testimonial-card__author">Teresea M.</span>
+                        <span class="testimonial-card__meta">Verified Customer</span>
+                        <span class="testimonial-card__date"></span>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+                        <p class="testimonial-card__quote">"Professional, efficient, and easy to communicate with. The house looks fantastic — I would absolutely use them again."</p>
+                        <div class="testimonial-card__divider"></div>
+                        <span class="testimonial-card__author">Steve S.</span>
+                        <span class="testimonial-card__meta">Homeowner · Santa Cruz</span>
+                        <span class="testimonial-card__date">October 2019</span>
+                    </article>
+                </div>
+                <div class="testimonials__cta">
+                    <a href="#final-cta" class="btn-primary magnetic-btn">Get Your Free Estimate →</a>
+                </div>
+                <div class="testimonials__featured">
+                    <div class="testimonials__featured-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <p class="testimonials__featured-quote">"Everyone was very polite and respectful of the concerns we had with our older home."</p>
+                    <span class="testimonials__featured-author">— Carolyn R.</span>
+                    <span class="testimonials__featured-meta">Exterior Project · March 2021</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section section--lg section--ink" id="faq" aria-labelledby="faq-heading">
+            <div class="section__container">
+                <div class="section__eyebrow">
+                    <div class="section__eyebrow-line" aria-hidden="true"></div>
+                    <span class="section__eyebrow-text">Common Questions — 11</span>
+                </div>
+                <h2 class="section__headline" id="faq-heading">FAQ</h2>
+                <div class="faq__list">
+                    <div class="faq-item">
+                        <button class="faq-item__question" aria-expanded="false">
+                            <span>Why are you priced in the middle — not the cheapest, not the most expensive?</span>
+                            <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="faq-item__answer" aria-hidden="true">
+                            <div class="faq-item__answer-inner">Because cheap paint jobs cost more in the long run. We've seen homeowners pay twice — once for the cheap job, again to fix it 18 months later when it peels. We charge what it costs to do it right the first time, with proper prep and premium coatings. That's it.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-item__question" aria-expanded="false">
+                            <span>What makes your prep work different from other painters?</span>
+                            <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="faq-item__answer" aria-hidden="true">
+                            <div class="faq-item__answer-inner">Most painters skip prep to save time. We don't. Every surface gets pressure-washed, sanded, caulked, and primed before any paint goes on. The prep is what makes the paint last 10+ years instead of peeling in two. It's not glamorous work, but it's what separates a professional job from a weekend warrior.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-item__question" aria-expanded="false">
+                            <span>Do you use premium coatings or standard paint?</span>
+                            <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="faq-item__answer" aria-hidden="true">
+                            <div class="faq-item__answer-inner">Exclusively premium Sherwin-Williams coatings. We spec the correct product for every surface type — the primer matters as much as the topcoat. We don't use big-box store paint. The coatings we apply are commercial-grade products designed for durability and UV resistance on the Central Coast.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-item__question" aria-expanded="false">
+                            <span>What warranty do you offer?</span>
+                            <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="faq-item__answer" aria-hidden="true">
+                            <div class="faq-item__answer-inner">If our application fails — peeling, cracking, or adhesion issues caused by our work — we come back and fix it at no cost. Period. We also honor all manufacturer warranties on the coatings we apply. We've been doing this for 35+ years and we stand behind every job.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-item__question" aria-expanded="false">
+                            <span>How long does a typical project take?</span>
+                            <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="faq-item__answer" aria-hidden="true">
+                            <div class="faq-item__answer-inner">A standard residential exterior takes 5–10 business days depending on size and condition. Interiors are typically 3–5 days. Commercial projects vary by scope. We'll give you a clear timeline during the estimate and we commit to it — our on-time completion promise isn't just marketing.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REFERRAL REWARDS -->
+        <section class="section section--ink-soft" id="referral" aria-labelledby="referral-heading">
+            <div class="section__container">
+                <div class="referral__grid">
+                    <div class="referral__left">
+                        <div class="referral__icon" aria-hidden="true">🎁</div>
+                        <div class="referral__label">Referral Rewards</div>
+                        <h2 class="referral__headline" id="referral-heading">KNOW SOMEONE WHO NEEDS THEIR PROPERTY <span class="lime">PAINTED RIGHT?</span></h2>
+                        <p class="referral__body">When you refer a homeowner or property manager to DS Painting and they complete a project, we send you a thank-you bonus as a token of our appreciation.</p>
+                        <p class="referral__body">Our business is built on relationships and trust. The highest compliment is a referral from a client who experienced our work firsthand.</p>
+                        <a href="tel:8315666807" class="btn-primary magnetic-btn" style="margin-top:24px;">📞 Call Dave to Learn More</a>
+                    </div>
+                    <div class="referral__right">
+                        <ul class="referral__steps">
+                            <li class="referral__step">
+                                <span class="referral__step-number">01</span>
+                                <span class="referral__step-text">Refer a friend, neighbor, or colleague to DS Painting.</span>
+                            </li>
+                            <li class="referral__step">
+                                <span class="referral__step-number">02</span>
+                                <span class="referral__step-text">They complete a painting project with us.</span>
+                            </li>
+                            <li class="referral__step">
+                                <span class="referral__step-number">03</span>
+                                <span class="referral__step-text">You receive a thank-you bonus from Dave personally.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="final-cta" id="final-cta" aria-labelledby="cta-heading">
+            <div class="final-cta__noise" aria-hidden="true"></div>
+            <div class="final-cta__container">
+                <p class="final-cta__eyebrow">Santa Cruz · Scotts Valley · Aptos · Capitola · Rio Del Mar</p>
+                <h2 class="final-cta__headline" id="cta-heading">READY TO PROTECT AND ELEVATE YOUR PROPERTY?</h2>
+                <p class="final-cta__subhead">Free, no-pressure estimate. We come to you. Response within 24 hours.</p>
+                <div class="final-cta__buttons">
+                    <a href="tel:8315666807" class="btn-ink magnetic-btn">Free Estimate →</a>
+                    <a href="tel:8315666807" class="btn-ink-outline magnetic-btn">📞 (831) 566-6807</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="logo.png" alt="DS Painting logo" class="footer__brand-logo">
+                    <p class="footer__brand-name">DS PAINTING</p>
+                    <p class="footer__brand-tagline">Quality painting that lasts. Serving the Central Coast since 1990.</p>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__col-title">Pages</h3>
+                    <ul class="footer__links">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#services">Residential</a></li>
+                        <li><a href="#services">Commercial</a></li>
+                        <li><a href="#process">About</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#final-cta">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__col-title">Service Areas</h3>
+                    <ul class="footer__links">
+                        <li><a href="#final-cta">Santa Cruz</a></li>
+                        <li><a href="#final-cta">Scotts Valley</a></li>
+                        <li><a href="#final-cta">Aptos</a></li>
+                        <li><a href="#final-cta">Capitola</a></li>
+                        <li><a href="#final-cta">Rio Del Mar</a></li>
+                        <li><a href="#final-cta">Watsonville</a></li>
+                        <li><a href="#final-cta">Soquel</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__col-title">Contact</h3>
+                    <ul class="footer__links">
+                        <li><a href="tel:8315666807">(831) 566-6807</a></li>
+                        <li><span style="color:var(--gray-text)">CA Lic. #1035426</span></li>
+                        <li><span style="color:var(--gray-text)">Mon–Fri 7am–5pm</span></li>
+                        <li><span style="color:var(--gray-text)">EPA Certified</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__divider"></div>
+            <div class="footer__bottom">
+                <span class="footer__copyright">&copy; 2026 DS Painting. All rights reserved.</span>
+                <span class="footer__legal">CA License #1035426 ✦ EPA Certified</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // Lenis smooth scroll
+            let lenis;
+            if (!prefersReducedMotion) {
+                lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+                requestAnimationFrame(raf);
+                lenis.on('scroll', ScrollTrigger.update);
+                gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+                gsap.ticker.lagSmoothing(0);
+            }
+
+            // Smooth anchor scrolling — Lenis doesn't intercept native anchor clicks by default
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    const href = anchor.getAttribute('href');
+                    if (href === '#' || href.length < 2) return;
+                    const target = document.querySelector(href);
+                    if (!target) return;
+                    e.preventDefault();
+                    if (lenis) {
+                        lenis.scrollTo(target, { offset: -76, duration: 1.4, easing: (t) => 1 - Math.pow(1 - t, 3) });
+                    } else {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // Nav scroll behavior
+            const nav = document.getElementById('nav');
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                if (scrollY > 100) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+                lastScroll = scrollY;
+            }, { passive: true });
+
+            // Mobile menu
+            const hamburger = document.getElementById('hamburger-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            hamburger.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('active');
+                mobileMenu.classList.toggle('active');
+                hamburger.setAttribute('aria-expanded', !isOpen);
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // FAQ accordion
+            document.querySelectorAll('.faq-item__question').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const item = btn.closest('.faq-item');
+                    const answer = item.querySelector('.faq-item__answer');
+                    const isOpen = item.classList.contains('open');
+
+                    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+                        if (openItem !== item) {
+                            openItem.classList.remove('open');
+                            openItem.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+                            openItem.querySelector('.faq-item__answer').style.maxHeight = '0';
+                            openItem.querySelector('.faq-item__answer').setAttribute('aria-hidden', 'true');
+                        }
+                    });
+
+                    if (isOpen) {
+                        item.classList.remove('open');
+                        btn.setAttribute('aria-expanded', 'false');
+                        answer.style.maxHeight = '0';
+                        answer.setAttribute('aria-hidden', 'true');
+                    } else {
+                        item.classList.add('open');
+                        btn.setAttribute('aria-expanded', 'true');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        answer.setAttribute('aria-hidden', 'false');
+                    }
+                });
+            });
+
+            // Skip animations if reduced motion
+            if (prefersReducedMotion) {
+                nav.style.transform = 'translateY(0)';
+                document.querySelectorAll('.promise-card, .testimonial-card, .process__card, .hero__badge, .hero__quote').forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                });
+                return;
+            }
+
+            // GSAP Animations
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Page load sequence
+            const loadTl = gsap.timeline();
+            loadTl
+                .to(nav, { y: 0, duration: 0.5, ease: 'power3.out', delay: 0.3 })
+                .to('.hero__eyebrow-line', { scaleX: 1, duration: 0.4, ease: 'power2.out' }, 0.6)
+                .from('.hero__eyebrow-text', { opacity: 0, x: -10, duration: 0.4 }, 0.7)
+                .from('.hero__headline', { opacity: 0, y: 40, duration: 0.8, ease: 'power3.out' }, 0.8)
+                .from('.hero__subhead', { opacity: 0, y: 20, duration: 0.5 }, 1.4)
+                .from('.hero__subhead-small', { opacity: 0, y: 20, duration: 0.5 }, 1.5)
+                .from('.hero__ctas', { opacity: 0, y: 20, duration: 0.5 }, 1.6)
+                .to('.hero__badge', { opacity: 1, y: 0, stagger: 0.15, duration: 0.5, ease: 'power2.out' }, 2.0)
+                .to('.hero__quote', { opacity: 1, duration: 0.5 }, 2.4);
+
+            // Section eyebrow line animations
+            document.querySelectorAll('.section__eyebrow').forEach(eyebrow => {
+                ScrollTrigger.create({
+                    trigger: eyebrow,
+                    start: 'top 85%',
+                    onEnter: () => eyebrow.classList.add('in-view'),
+                    once: true
+                });
+            });
+
+            // Promise cards stagger
+            gsap.to('.promise-card', {
+                opacity: 1,
+                y: 0,
+                stagger: 0.1,
+                duration: 0.6,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.promises__grid',
+                    start: 'top 75%',
+                    once: true
+                }
+            });
+
+            // Process timeline cards
+            document.querySelectorAll('.process__card').forEach(card => {
+                ScrollTrigger.create({
+                    trigger: card,
+                    start: 'top 80%',
+                    onEnter: () => card.classList.add('in-view'),
+                    once: true
+                });
+            });
+
+            // Process timeline line fill
+            const timelineSection = document.querySelector('.process__timeline');
+            if (timelineSection) {
+                const lineFill = document.querySelector('.process__line-fill');
+                ScrollTrigger.create({
+                    trigger: timelineSection,
+                    start: 'top 60%',
+                    end: 'bottom 40%',
+                    scrub: 1,
+                    onUpdate: (self) => {
+                        lineFill.style.height = (self.progress * 100) + '%';
+                    }
+                });
+            }
+
+            // Process dot activation
+            document.querySelectorAll('.process__item').forEach(item => {
+                ScrollTrigger.create({
+                    trigger: item,
+                    start: 'top 60%',
+                    onEnter: () => item.classList.add('active'),
+                    once: true
+                });
+            });
+
+            // Testimonial cards stagger
+            gsap.to('.testimonial-card', {
+                opacity: 1,
+                y: 0,
+                stagger: 0.08,
+                duration: 0.6,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.testimonials__grid',
+                    start: 'top 75%',
+                    once: true
+                }
+            });
+
+            // Portfolio items reveal
+            document.querySelectorAll('.portfolio__item').forEach((item, i) => {
+                gsap.from(item, {
+                    clipPath: 'inset(100% 0 0 0)',
+                    duration: 1,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 90%',
+                        once: true
+                    },
+                    delay: i * 0.04
+                });
+            });
+
+            // Service cards — use gsap.to() with CSS-initialized state so cards stay visible if ScrollTrigger fails
+            gsap.set('.service-card', { opacity: 0, y: 40 });
+            ScrollTrigger.create({
+                trigger: '.services__grid',
+                start: 'top 85%',
+                once: true,
+                onEnter: () => {
+                    gsap.to('.service-card', {
+                        opacity: 1,
+                        y: 0,
+                        stagger: 0.15,
+                        duration: 0.7,
+                        ease: 'power3.out'
+                    });
+                }
+            });
+            // Failsafe: ensure cards become visible after 2s even if trigger never fires
+            setTimeout(() => {
+                gsap.to('.service-card', { opacity: 1, y: 0, duration: 0.5 });
+            }, 2500);
+
+            // Final CTA headline
+            gsap.from('.final-cta__headline', {
+                opacity: 0,
+                y: 60,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.final-cta',
+                    start: 'top 70%',
+                    once: true
+                }
+            });
+
+            // Magnetic button effect
+            document.querySelectorAll('.magnetic-btn').forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    const distance = Math.sqrt(x * x + y * y);
+                    const maxDist = 60;
+                    if (distance < maxDist) {
+                        const strength = 0.3;
+                        btn.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+                    }
+                });
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = '';
+                });
+            });
+
+            // Hero parallax
+            gsap.to('.hero__bg', {
+                y: '-10%',
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.hero',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 1
+                }
+            });
+
+        })();
+    </script>
+</body>
+</html>
