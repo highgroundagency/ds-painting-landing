@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact · DS Painting — Free Estimates, Central Coast</title>
+    <meta name="description" content="Contact DS Painting for a free, no-pressure estimate. Call (831) 566-6807 or email smithpainting69@yahoo.com. Serving Santa Cruz, Scotts Valley, Aptos, Capitola & Rio Del Mar.">
+    <meta property="og:title" content="Contact DS Painting">
+    <meta property="og:description" content="Free estimates · Response within 24 hours · (831) 566-6807">
+    <meta property="og:image" content="house-victorian-modern.png">
+    <meta property="og:type" content="website">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css?v=2">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="nav" id="nav" role="banner">
+        <a href="index.html" class="nav__brand" aria-label="DS Painting home"><img src="logo.png" alt="DS Painting" style="height: 56px; width: auto; display: block;"></a>
+        <nav aria-label="Main navigation">
+            <ul class="nav__links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="residential.html">Residential</a></li>
+                <li><a href="commercial.html">Commercial</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="tel:+18315666807" class="nav__cta" aria-label="Call DS Painting"><span aria-hidden="true">📞</span> (831) 566-6807</a>
+        <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false" id="hamburger-btn"><span></span><span></span><span></span></button>
+    </header>
+
+    <div class="nav__mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+        <a href="index.html">Home</a>
+        <a href="residential.html">Residential</a>
+        <a href="commercial.html">Commercial</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact</a>
+        <a href="tel:+18315666807" style="color: var(--lime-deep);">📞 (831) 566-6807</a>
+    </div>
+
+    <main id="main-content">
+        <section class="page-hero" aria-labelledby="hero-h">
+            <div class="page-hero__container">
+                <p class="page-hero__eyebrow">Contact</p>
+                <h1 class="page-hero__headline" id="hero-h">Free estimate. <em>No pressure.</em></h1>
+                <p class="page-hero__subhead">Tell us about your project. Dave personally responds to every inquiry within 24 hours — usually faster. Or pick up the phone and call him directly.</p>
+            </div>
+        </section>
+
+        <section class="section section--lg section--ink" aria-labelledby="contact-h">
+            <div class="section__container">
+                <h2 class="section__headline" id="contact-h" style="margin-bottom: 60px;">Reach <em>Dave directly.</em></h2>
+                <div class="contact__grid">
+                    <div>
+                        <form class="contact-form" id="contact-form" aria-labelledby="contact-h" novalidate>
+                            <div class="contact-form__field">
+                                <label class="contact-form__label" for="cf-name">Your name</label>
+                                <input class="contact-form__input" type="text" id="cf-name" name="name" autocomplete="name" required>
+                            </div>
+                            <div class="contact-form__field">
+                                <label class="contact-form__label" for="cf-email">Email</label>
+                                <input class="contact-form__input" type="email" id="cf-email" name="email" autocomplete="email" required>
+                            </div>
+                            <div class="contact-form__field">
+                                <label class="contact-form__label" for="cf-phone">Phone</label>
+                                <input class="contact-form__input" type="tel" id="cf-phone" name="phone" autocomplete="tel">
+                            </div>
+                            <div class="contact-form__field">
+                                <label class="contact-form__label" for="cf-type">Project type</label>
+                                <select class="contact-form__select" id="cf-type" name="project_type" required>
+                                    <option value="">Select a project type</option>
+                                    <option value="residential-interior">Residential — Interior</option>
+                                    <option value="residential-exterior">Residential — Exterior</option>
+                                    <option value="residential-full">Residential — Full Property</option>
+                                    <option value="commercial">Commercial Building</option>
+                                    <option value="hoa">HOA / Property Management</option>
+                                    <option value="other">Something Else</option>
+                                </select>
+                            </div>
+                            <div class="contact-form__field">
+                                <label class="contact-form__label" for="cf-message">Tell us about the project</label>
+                                <textarea class="contact-form__textarea" id="cf-message" name="message" placeholder="Square footage, address, timeline, any details that'll help us scope the work..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary contact-form__submit">Request Free Estimate →</button>
+                        </form>
+
+                        <div class="contact-form__success" id="contact-form-success" role="status" aria-live="polite">
+                            <div class="contact-form__success-icon" aria-hidden="true">✓</div>
+                            <h3>Thanks — we'll be in touch.</h3>
+                            <p>Dave will respond within 24 hours. If you need to reach us sooner, call <a href="tel:+18315666807" style="color:var(--lime-deep);font-weight:600;">(831) 566-6807</a>.</p>
+                        </div>
+                    </div>
+
+                    <aside aria-label="Direct contact methods">
+                        <div class="contact-direct">
+                            <a href="tel:+18315666807" class="contact-direct__item">
+                                <span class="contact-direct__label">Call</span>
+                                <span class="contact-direct__value"><span aria-hidden="true">📞</span> (831) 566-6807</span>
+                            </a>
+                            <a href="mailto:smithpainting69@yahoo.com" class="contact-direct__item">
+                                <span class="contact-direct__label">Email</span>
+                                <span class="contact-direct__value contact-direct__value-sm"><span aria-hidden="true">✉</span> smithpainting69@yahoo.com</span>
+                            </a>
+                        </div>
+
+                        <div class="contact-map" id="service-areas" aria-label="Service areas">
+                            <div class="contact-map__label">Service Areas</div>
+                            <div class="contact-map__title">Santa Cruz County</div>
+                            <ul class="contact-map__list">
+                                <li>Santa Cruz · Scotts Valley · Aptos</li>
+                                <li>Capitola · Rio Del Mar · Soquel</li>
+                                <li>Watsonville · La Selva Beach · Boulder Creek</li>
+                            </ul>
+                        </div>
+
+                        <div class="contact-hours">
+                            <div class="contact-hours__row"><span class="contact-hours__day">Monday</span><span>7:00 AM – 5:00 PM</span></div>
+                            <div class="contact-hours__row"><span class="contact-hours__day">Tuesday</span><span>7:00 AM – 5:00 PM</span></div>
+                            <div class="contact-hours__row"><span class="contact-hours__day">Wednesday</span><span>7:00 AM – 5:00 PM</span></div>
+                            <div class="contact-hours__row"><span class="contact-hours__day">Thursday</span><span>7:00 AM – 5:00 PM</span></div>
+                            <div class="contact-hours__row"><span class="contact-hours__day">Friday</span><span>7:00 AM – 5:00 PM</span></div>
+                            <div class="contact-hours__row"><span class="contact-hours__day">Saturday</span><span>By Appointment</span></div>
+                            <div class="contact-hours__row"><span class="contact-hours__day">Sunday</span><span>Closed</span></div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="logo.png" alt="DS Painting logo" class="footer__brand-logo">
+                    <p class="footer__brand-name">DS PAINTING</p>
+                    <p class="footer__brand-tagline">Quality painting that lasts. Serving the Central Coast since 1990.</p>
+                </div>
+                <div class="footer__col"><h3 class="footer__col-title">Pages</h3><ul class="footer__links"><li><a href="index.html">Home</a></li><li><a href="residential.html">Residential</a></li><li><a href="commercial.html">Commercial</a></li><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+                <div class="footer__col"><h3 class="footer__col-title">Service Areas</h3><ul class="footer__links"><li><a href="#service-areas">Santa Cruz</a></li><li><a href="#service-areas">Scotts Valley</a></li><li><a href="#service-areas">Aptos</a></li><li><a href="#service-areas">Capitola</a></li><li><a href="#service-areas">Rio Del Mar</a></li><li><a href="#service-areas">Watsonville</a></li><li><a href="#service-areas">Soquel</a></li></ul></div>
+                <div class="footer__col"><h3 class="footer__col-title">Contact</h3><ul class="footer__links"><li><a href="tel:+18315666807">(831) 566-6807</a></li><li><a href="mailto:smithpainting69@yahoo.com">smithpainting69@yahoo.com</a></li><li><span style="color:var(--gray-text)">CA Lic. #1035426</span></li><li><span style="color:var(--gray-text)">Mon–Fri 7am–5pm</span></li><li><span style="color:var(--gray-text)">EPA Certified</span></li></ul></div>
+            </div>
+            <div class="footer__divider"></div>
+            <div class="footer__bottom"><span class="footer__copyright">&copy; 2026 DS Painting. All rights reserved.</span><span class="footer__legal">CA License #1035426 ✦ EPA Certified</span></div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="./main.js?v=2"></script>
+</body>
+</html>
