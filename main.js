@@ -5,6 +5,94 @@
     const $ = (sel, root = document) => root.querySelector(sel);
     const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
+    // ===== Project detail page hydration =====
+    // Runs first so a missing/invalid id can redirect before any further setup.
+    const projectPage = $('[data-project-page]');
+    if (projectPage) {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        const projects = Array.isArray(window.PROJECTS) ? window.PROJECTS : [];
+        const project = id ? projects.find(p => p.id === id) : null;
+
+        if (!project) {
+            window.location.replace('portfolio.html');
+            return;
+        }
+
+        const setText = (sel, value) => { const el = $(sel); if (el) el.textContent = value; };
+        const setAttr = (sel, attr, value) => { const el = $(sel); if (el) el.setAttribute(attr, value); };
+
+        // Title + meta
+        const titleStr = `${project.title} · ${project.city}, ${project.state} · DS Painting`;
+        document.title = titleStr;
+        setAttr('#page-description', 'content', `${project.title} — ${project.description.slice(0, 155)}`);
+        setText('#og-title', '');
+        const og = $('#og-title'); if (og) og.setAttribute('content', titleStr);
+        const ogd = $('#og-description'); if (ogd) ogd.setAttribute('content', project.description.slice(0, 200));
+        const ogi = $('#og-image'); if (ogi) ogi.setAttribute('content', project.heroImage);
+
+        // Breadcrumb
+        setText('[data-project-breadcrumb]', `${project.city}, ${project.state}`);
+
+        // Hero
+        const heroImg = $('[data-project-hero-image]');
+        if (heroImg) {
+            heroImg.src = project.heroImage;
+            heroImg.alt = `${project.title} — ${project.city}, ${project.state}`;
+        }
+        setText('[data-project-year]', project.year);
+        setText('[data-project-type]', project.type === 'commercial' ? 'Commercial' : 'Residential');
+        setText('[data-project-title]', project.title);
+        setText('[data-project-location]', `${project.city}, ${project.state}`);
+
+        // Description
+        setText('[data-project-description]', project.description);
+
+        // Scope list
+        const scopeUl = $('[data-project-scope]');
+        if (scopeUl) {
+            scopeUl.innerHTML = '';
+            (project.scope || []).forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                scopeUl.appendChild(li);
+            });
+        }
+
+        // Products list
+        const productsUl = $('[data-project-products]');
+        if (productsUl) {
+            productsUl.innerHTML = '';
+            (project.products || []).forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                productsUl.appendChild(li);
+            });
+        }
+
+        // Gallery (only show section if entries exist)
+        const gallerySection = $('[data-project-gallery-section]');
+        const galleryGrid = $('[data-project-gallery]');
+        if (gallerySection && galleryGrid) {
+            if (Array.isArray(project.gallery) && project.gallery.length > 0) {
+                gallerySection.removeAttribute('hidden');
+                galleryGrid.innerHTML = '';
+                project.gallery.forEach((src, i) => {
+                    const fig = document.createElement('figure');
+                    fig.className = 'page-project__gallery-item';
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.loading = 'lazy';
+                    img.alt = `${project.title} — image ${i + 2}`;
+                    fig.appendChild(img);
+                    galleryGrid.appendChild(fig);
+                });
+            } else {
+                gallerySection.setAttribute('hidden', '');
+            }
+        }
+    }
+
     // ===== Lenis smooth scroll =====
     let lenis;
     if (!prefersReducedMotion && window.Lenis) {
