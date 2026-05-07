@@ -44,16 +44,22 @@
     </script>
     <style>
         :root {
+            /* Phase 1: Light mode. --ink stays the dark color (now used as TEXT);
+               --paper stays the light color (now used as BACKGROUND). Lime is the
+               unchanged brand accent. --ink-soft / --ink-card retained as variable
+               names but redefined to light surface values for backwards-compat. */
             --ink: #0a0a0a;
-            --ink-soft: #141414;
-            --ink-card: #1a1a1a;
+            --ink-soft: #fafafa;        /* alt section bg (was #141414) */
+            --ink-card: #f7f7f7;        /* card surface (was #1a1a1a) */
             --lime: #7FFF00;
             --lime-bright: #9FFF33;
             --lime-deep: #65CC00;
-            --paper: #fafaf7;
-            --gray-line: rgba(250, 250, 247, 0.08);
-            --gray-text: rgba(250, 250, 247, 0.6);
-            --gray-text-soft: rgba(250, 250, 247, 0.4);
+            --paper: #ffffff;           /* page bg (was #fafaf7) */
+            --gray-line: rgba(0, 0, 0, 0.08);
+            --gray-text: #4a4a4a;
+            --gray-text-soft: #6b6b6b;
+            --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.04);
+            --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.08);
             --easing: cubic-bezier(0.22, 1, 0.36, 1);
             --nav-height: 76px;
         }
@@ -70,8 +76,8 @@
 
         body {
             font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--ink);
-            color: var(--paper);
+            background: var(--paper);
+            color: var(--ink);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -122,22 +128,32 @@
             right: 0;
             height: var(--nav-height);
             z-index: 1000;
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border-bottom: 1px solid var(--gray-line);
+            background: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border-bottom: 1px solid transparent;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 56px;
-            transition: padding 0.4s var(--easing), background 0.4s var(--easing);
+            transition: background 0.25s var(--easing), backdrop-filter 0.25s var(--easing), border-color 0.25s var(--easing), padding 0.25s var(--easing);
             transform: translateY(-100%);
         }
 
         .nav.scrolled {
-            padding-top: 0;
-            padding-bottom: 0;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        /* Logo treatment — drop-shadow ensures contrast over the dark hero photo */
+        .nav__brand img {
+            transition: filter 0.25s var(--easing);
+            filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.45));
+        }
+        .nav.scrolled .nav__brand img {
+            filter: none;
         }
 
         .nav__brand {
@@ -170,7 +186,7 @@
         .nav__brand-name {
             font-weight: 700;
             font-size: 14px;
-            color: var(--paper);
+            color: var(--ink);
             letter-spacing: 0.02em;
         }
 
@@ -194,13 +210,24 @@
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--gray-text-soft);
-            transition: color 0.3s var(--easing);
+            color: rgba(255, 255, 255, 0.85);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+            transition: color 0.25s var(--easing), text-shadow 0.25s var(--easing);
+        }
+
+        .nav.scrolled .nav__links a {
+            color: var(--gray-text);
+            text-shadow: none;
         }
 
         .nav__links a:hover,
         .nav__links a:focus-visible {
-            color: var(--paper);
+            color: #ffffff;
+        }
+
+        .nav.scrolled .nav__links a:hover,
+        .nav.scrolled .nav__links a:focus-visible {
+            color: var(--ink);
         }
 
         .nav__cta {
@@ -236,9 +263,15 @@
         .nav__hamburger span {
             display: block;
             height: 2px;
-            background: var(--paper);
+            background: #ffffff;
             border-radius: 2px;
-            transition: all 0.3s var(--easing);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+            transition: background 0.25s var(--easing), box-shadow 0.25s var(--easing);
+        }
+
+        .nav.scrolled .nav__hamburger span {
+            background: var(--ink);
+            box-shadow: none;
         }
 
         .nav__mobile-menu {
@@ -248,8 +281,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(10, 10, 10, 0.98);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             padding: 40px 32px;
             z-index: 999;
         }
@@ -264,7 +298,7 @@
             font-family: 'Geist', sans-serif;
             font-weight: 500;
             font-size: 24px;
-            color: var(--paper);
+            color: var(--ink);
             display: block;
             padding: 8px 0;
             border-bottom: 1px solid var(--gray-line);
@@ -298,6 +332,19 @@
             position: absolute;
             inset: 0;
             background: linear-gradient(180deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.7) 50%, rgba(10,10,10,0.95) 100%);
+        }
+
+        /* Soft fade from dark hero into the white sections below */
+        .hero::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 80px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+            z-index: 3;
+            pointer-events: none;
         }
 
         .hero__content {
@@ -341,7 +388,7 @@
             font-weight: 900;
             line-height: 0.9;
             letter-spacing: -0.04em;
-            color: var(--paper);
+            color: var(--ink);
             margin-bottom: 32px;
         }
 
@@ -421,7 +468,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--paper);
+            color: var(--ink);
             font-family: 'Geist', sans-serif;
             font-weight: 500;
             font-size: 15px;
@@ -452,8 +499,10 @@
         }
 
         .hero__badge {
-            background: var(--ink-card);
-            border: 1px solid var(--gray-line);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border-radius: 8px;
             padding: 20px 28px;
             display: flex;
@@ -476,7 +525,7 @@
             font-family: 'Geist', sans-serif;
             font-weight: 600;
             font-size: 14px;
-            color: var(--paper);
+            color: var(--ink);
         }
 
         /* Hero quote */
@@ -512,7 +561,9 @@
 
         /* TRUST STRIP */
         .trust-strip {
-            background: var(--lime);
+            background: #fafafa;
+            border-top: 1px solid var(--gray-line);
+            border-bottom: 1px solid var(--gray-line);
             padding: 22px 0;
             overflow: hidden;
             position: relative;
@@ -542,6 +593,7 @@
         .trust-strip__item::after {
             content: ' \2726';
             margin-left: 24px;
+            color: var(--lime-deep);
         }
 
         @keyframes marquee {
@@ -558,7 +610,7 @@
             padding: 140px 56px;
         }
 
-        .section--ink { background: var(--ink); }
+        .section--ink { background: var(--paper); }
         .section--ink-soft { background: var(--ink-soft); }
 
         .section__container {
@@ -600,7 +652,7 @@
             font-weight: 900;
             line-height: 0.95;
             letter-spacing: -0.03em;
-            color: var(--paper);
+            color: var(--ink);
             margin-bottom: 24px;
         }
 
@@ -635,15 +687,16 @@
             min-height: 280px;
             display: flex;
             flex-direction: column;
+            box-shadow: var(--shadow-card);
             transition: all 0.3s var(--easing);
             opacity: 0;
             transform: translateY(40px);
         }
 
         .promise-card:hover {
-            border-color: var(--lime);
+            border-color: var(--lime-deep);
             transform: translateY(-4px);
-            box-shadow: 0 8px 32px rgba(127, 255, 0, 0.08);
+            box-shadow: var(--shadow-card-hover);
         }
 
         .promise-card__icon {
@@ -664,7 +717,7 @@
         .promise-card__title {
             font-size: 20px;
             font-weight: 700;
-            color: var(--paper);
+            color: var(--ink);
             margin-bottom: 12px;
         }
 
@@ -728,16 +781,18 @@
         }
 
         .service-card {
-            background: var(--ink-card);
+            background: var(--paper);
             border: 1px solid var(--gray-line);
             border-radius: 8px;
             overflow: hidden;
+            box-shadow: var(--shadow-card);
             transition: all 0.3s var(--easing);
         }
 
         .service-card:hover {
-            border-color: var(--lime);
+            border-color: var(--lime-deep);
             transform: translateY(-4px);
+            box-shadow: var(--shadow-card-hover);
         }
 
         .service-card__image {
@@ -765,7 +820,7 @@
         .service-card__title {
             font-size: 28px;
             font-weight: 800;
-            color: var(--paper);
+            color: var(--ink);
             letter-spacing: -0.02em;
         }
 
@@ -783,7 +838,7 @@
 
         .service-card__list li {
             font-size: 15px;
-            color: var(--paper);
+            color: var(--ink);
             padding: 8px 0;
             display: flex;
             align-items: center;
@@ -873,8 +928,8 @@
             top: 12px;
             width: 16px;
             height: 16px;
-            background: var(--ink);
-            border: 2px solid var(--lime);
+            background: var(--paper);
+            border: 2px solid var(--lime-deep);
             border-radius: 50%;
             transform: translateX(-50%);
             z-index: 2;
@@ -887,11 +942,12 @@
         }
 
         .process__card {
-            background: var(--ink-card);
+            background: var(--paper);
             border: 1px solid var(--gray-line);
             border-radius: 8px;
             padding: 32px;
             max-width: 480px;
+            box-shadow: var(--shadow-card);
             opacity: 0;
             transform: translateX(-40px);
             transition: all 0.6s var(--easing);
@@ -918,7 +974,7 @@
         .process__title {
             font-size: 22px;
             font-weight: 700;
-            color: var(--paper);
+            color: var(--ink);
             margin-bottom: 12px;
         }
 
@@ -950,15 +1006,17 @@
         }
 
         .promise-badge {
-            background: var(--ink-card);
+            background: var(--paper);
             border: 1px solid var(--gray-line);
             border-radius: 8px;
             padding: 24px;
+            box-shadow: var(--shadow-card);
             transition: all 0.3s var(--easing);
         }
 
         .promise-badge:hover {
-            border-color: var(--lime);
+            border-color: var(--lime-deep);
+            box-shadow: var(--shadow-card-hover);
         }
 
         .promise-badge__icon {
@@ -969,7 +1027,7 @@
         .promise-badge__title {
             font-size: 15px;
             font-weight: 700;
-            color: var(--paper);
+            color: var(--ink);
             margin-bottom: 8px;
         }
 
@@ -1034,7 +1092,7 @@
             font-family: 'Instrument Serif', serif;
             font-style: italic;
             font-size: 20px;
-            color: var(--paper);
+            color: var(--ink);
         }
 
         .portfolio__item--1 { grid-column: 1 / 7; grid-row: 1 / 4; }
@@ -1083,13 +1141,14 @@
         }
 
         .testimonial-card {
-            background: var(--ink-card);
+            background: var(--paper);
             border: 1px solid var(--gray-line);
             border-radius: 8px;
             padding: 32px;
             min-height: 320px;
             display: flex;
             flex-direction: column;
+            box-shadow: var(--shadow-card);
             opacity: 0;
             transform: translateY(30px);
         }
@@ -1106,7 +1165,7 @@
             font-style: italic;
             font-size: 17px;
             line-height: 1.5;
-            color: var(--paper);
+            color: var(--ink);
             flex: 1;
             margin-bottom: 24px;
         }
@@ -1120,7 +1179,7 @@
         .testimonial-card__author {
             font-weight: 700;
             font-size: 14px;
-            color: var(--paper);
+            color: var(--ink);
         }
 
         .testimonial-card__meta {
@@ -1159,14 +1218,14 @@
             font-style: italic;
             font-size: 24px;
             line-height: 1.5;
-            color: var(--paper);
+            color: var(--ink);
             margin-bottom: 20px;
         }
 
         .testimonials__featured-author {
             font-weight: 700;
             font-size: 14px;
-            color: var(--paper);
+            color: var(--ink);
         }
 
         .testimonials__featured-meta {
@@ -1189,11 +1248,12 @@
         }
 
         .faq-item {
-            background: var(--ink-card);
+            background: var(--paper);
             border: 1px solid var(--gray-line);
             border-radius: 8px;
             margin-bottom: 12px;
             overflow: hidden;
+            box-shadow: var(--shadow-card);
         }
 
         .faq-item__question {
@@ -1205,14 +1265,14 @@
             font-family: 'Geist', sans-serif;
             font-size: 17px;
             font-weight: 700;
-            color: var(--paper);
+            color: var(--ink);
             text-align: left;
             cursor: pointer;
             transition: color 0.3s var(--easing);
         }
 
         .faq-item__question:hover {
-            color: var(--lime);
+            color: var(--lime-deep);
         }
 
         .faq-item__question:focus-visible {
@@ -1273,7 +1333,7 @@
             font-weight: 900;
             line-height: 0.95;
             letter-spacing: -0.03em;
-            color: var(--paper);
+            color: var(--ink);
             margin-bottom: 28px;
         }
 
@@ -1309,7 +1369,7 @@
         .referral__step-text {
             font-size: 16px;
             line-height: 1.6;
-            color: var(--paper);
+            color: var(--ink);
             padding-top: 16px;
         }
 
@@ -1424,7 +1484,8 @@
 
         /* FOOTER */
         .footer {
-            background: var(--ink);
+            background: #f0f0f0;
+            border-top: 1px solid var(--gray-line);
             padding: 100px 56px 40px;
         }
 
@@ -1448,7 +1509,7 @@
         .footer__brand-name {
             font-weight: 700;
             font-size: 16px;
-            color: var(--paper);
+            color: var(--ink);
             margin-bottom: 8px;
         }
 
@@ -1485,7 +1546,7 @@
         }
 
         .footer__links a:hover {
-            color: var(--paper);
+            color: var(--ink);
         }
 
         .footer__divider {
@@ -1513,6 +1574,48 @@
             color: var(--gray-text-soft);
             letter-spacing: 1px;
         }
+
+        /* ===== HERO INTERNAL OVERRIDES =====
+           Hero keeps a dark photo + dark gradient overlay, so all text inside it
+           must stay light. These rules win because they're more specific and
+           come after the global declarations that flipped to dark text. */
+        .hero__headline { color: #ffffff; }
+        .hero__headline em { color: var(--lime); }
+        .hero__headline .big-lime { color: var(--lime); }
+        .hero__subhead { color: rgba(255, 255, 255, 0.78); }
+        .hero__subhead-small { color: rgba(255, 255, 255, 0.55); }
+        .hero__badge-text { color: #ffffff; }
+        .hero__quote { border-left-color: var(--lime); }
+        .hero__quote p { color: rgba(255, 255, 255, 0.78); }
+        .hero__quote cite { color: rgba(255, 255, 255, 0.55); }
+        .hero .btn-ghost { color: #ffffff; border-bottom-color: rgba(255, 255, 255, 0.4); }
+        .hero .btn-ghost:hover { color: var(--lime); border-bottom-color: var(--lime); }
+
+        /* ===== PORTFOLIO HOVER — light treatment for light mode ===== */
+        .portfolio__item-overlay {
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.6) 50%, transparent 75%);
+        }
+        .portfolio__item-number { color: var(--lime-deep); }
+        .portfolio__item-name { color: var(--ink); }
+
+        /* ===== LIME CONTRAST FIXES on white surfaces =====
+           Pure --lime on pure white is decorative-only contrast (~1.4:1).
+           Where lime is used as small/body text on white, swap to --lime-deep
+           (#65CC00, ~2.2:1). Display headlines/big numbers stay --lime by spec. */
+        .video-section__label,
+        .testimonial-card__meta,
+        .testimonials__featured-meta,
+        .service-card__link,
+        .portfolio__link,
+        .referral__label,
+        .footer__col-title { color: var(--lime-deep); }
+
+        /* Hero internals stay on dark photo bg, so keep bright lime there */
+        .hero__eyebrow-text,
+        .video-section__label-on-dark { color: var(--lime); }
+
+        /* ===== TESTIMONIAL DIVIDER stays subtle on white card ===== */
+        .testimonial-card__divider { background: var(--gray-line); }
 
         /* RESPONSIVE */
         @media (max-width: 1200px) {
@@ -2364,7 +2467,7 @@
             let lastScroll = 0;
             window.addEventListener('scroll', () => {
                 const scrollY = window.scrollY;
-                if (scrollY > 100) {
+                if (scrollY > 80) {
                     nav.classList.add('scrolled');
                 } else {
                     nav.classList.remove('scrolled');
